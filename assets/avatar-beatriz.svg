@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#CCFBF1" />
+      <stop offset="100%" stop-color="#99F6E4" />
+    </linearGradient>
+    <linearGradient id="skin" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FED7AA" />
+      <stop offset="100%" stop-color="#FDBA74" />
+    </linearGradient>
+    <linearGradient id="hair" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+    <linearGradient id="shirt" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D9488" />
+      <stop offset="100%" stop-color="#0F766E" />
+    </linearGradient>
+  </defs>
+
+  <!-- Fundo Circular -->
+  <circle cx="60" cy="60" r="58" fill="url(#bgGrad)" stroke="#5EEAD4" stroke-width="2" />
+
+  <!-- Ombros e Top Fitness de Pilates -->
+  <path d="M 24 116 C 24 88 40 82 60 82 C 80 82 96 88 96 116 Z" fill="url(#shirt)" />
+  <!-- Decote e detalhes coral -->
+  <path d="M 46 84 Q 60 98 74 84 Z" fill="url(#skin)" />
+  <path d="M 44 86 Q 60 100 76 86" stroke="#FF6B6B" stroke-width="3" fill="none" />
+
+  <!-- Pescoço -->
+  <rect x="52" y="62" width="16" height="24" rx="4" fill="url(#skin)" />
+
+  <!-- Cabeça / Rosto -->
+  <ellipse cx="60" cy="52" rx="20" ry="24" fill="url(#skin)" />
+
+  <!-- Cabelo e Coque Alto de Instrutora -->
+  <circle cx="60" cy="20" r="16" fill="url(#hair)" /> <!-- Coque -->
+  <circle cx="60" cy="24" r="6" fill="#FF6B6B" /> <!-- Laço/elástico coral -->
+  
+  <!-- Cabelo frontal moldando o rosto -->
+  <path d="M 40 48 C 40 28 80 28 80 48 C 76 36 68 34 60 35 C 52 34 44 36 40 48 Z" fill="url(#hair)" />
+
+  <!-- Detalhes do Rosto Sorridente -->
+  <!-- Olhos alegres -->
+  <path d="M 48 50 Q 52 46 56 50" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round" fill="none" />
+  <path d="M 64 50 Q 68 46 72 50" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round" fill="none" />
+  
+  <!-- Sobrancelhas suaves -->
+  <path d="M 47 45 Q 52 42 56 46" stroke="#334155" stroke-width="1.8" stroke-linecap="round" fill="none" />
+  <path d="M 64 46 Q 68 42 73 45" stroke="#334155" stroke-width="1.8" stroke-linecap="round" fill="none" />
+
+  <!-- Nariz sutil -->
+  <path d="M 60 52 L 59 57 L 61 57" stroke="#F97316" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.6" />
+
+  <!-- Sorriso caloroso acolhedor -->
+  <path d="M 52 64 Q 60 72 68 64" stroke="#E11D48" stroke-width="2.5" stroke-linecap="round" fill="none" />
+
+  <!-- Blush suave nas bochechas -->
+  <circle cx="47" cy="58" r="4.5" fill="#FDA4AF" opacity="0.6" />
+  <circle cx="73" cy="58" r="4.5" fill="#FDA4AF" opacity="0.6" />
+</svg>

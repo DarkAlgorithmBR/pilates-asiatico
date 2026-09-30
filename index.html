@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Desafio Pilates de Parede - 28 Dias | Beatriz Araujo</title>
+  <meta name="description" content="Aplicativo oficial do Desafio Pilates de Parede 28 Dias com a especialista Beatriz Araujo. Demonstrações vetoriais nativas e cronômetro guiado.">
+  <meta name="theme-color" content="#0D9488">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Pilates Parede">
+
+  <!-- Favicon e Ícones PWA -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/app-icon.svg">
+  <link rel="apple-touch-icon" href="assets/icons/app-icon.svg">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Tipografia Moderna (Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Canvas de Confetes da Vitória -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <div class="app-container">
+
+    <!-- Banner Inteligente de Instalação PWA -->
+    <div id="pwa-install-banner" class="pwa-banner hidden">
+      <div class="pwa-banner-content">
+        <span class="pwa-banner-icon">📱</span>
+        <div class="pwa-banner-text">
+          <strong>Instalar Aplicativo Oficial</strong>
+          <span>Acesse direto da sua tela inicial como um app nativo</span>
+        </div>
+      </div>
+      <div class="pwa-banner-actions">
+        <button id="btn-pwa-install" class="btn-pwa-install">Instalar</button>
+        <button id="btn-close-install-banner" class="btn-pwa-close" aria-label="Fechar">✕</button>
+      </div>
+    </div>
+
+    <!-- Header Principal -->
+    <header class="app-header">
+      <div class="header-top">
+        <div class="instructor-badge">
+          <div class="avatar-wrapper">
+            <img src="assets/avatar-beatriz.svg" alt="Beatriz Araujo" class="avatar-img">
+            <span class="avatar-verified" title="Especialista Certificada">✓</span>
+          </div>
+          <div class="instructor-info">
+            <span class="greeting" id="header-user-greeting">Desafio Oficial</span>
+            <h1 class="instructor-name">Beatriz Araujo</h1>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <div class="streak-pill" title="Sequência de dias ativos">
+            <span>🔥</span>
+            <span id="header-streak-count">0 dias</span>
+          </div>
+          <button id="header-sound-btn" class="btn-icon-header" title="Alternar Som">
+            <svg id="header-sound-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" height="18">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Barra de Progresso Rápido -->
+      <div class="header-progress-bar-wrap">
+        <div class="header-progress-meta">
+          <span id="header-progress-summary">Dia 01 de 28 • 0% Concluído</span>
+          <span>Pilates de Parede</span>
+        </div>
+        <div class="progress-track">
+          <div id="progress-bar-fill" class="progress-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Frase Motivacional do Dia -->
+      <div class="quote-bubble" id="quote-beatriz">
+        “O segredo do Pilates não é a pressa, é o controle de cada respiração.” — Beatriz Araujo
+      </div>
+    </header>
+
+    <!-- ============================================================
+         ABA 1: DASHBOARD
+         ============================================================ -->
+    <main id="tab-view-dashboard" class="tab-view-panel active">
+      <!-- Card Hero: Treino de Hoje -->
+      <section class="hero-workout-card">
+        <div class="hero-tag">
+          <span>✨</span>
+          <span>Treino de Hoje</span>
+        </div>
+        <h2 id="today-workout-title" class="hero-title">Dia 01: Alinhamento & Respiração</h2>
+        <p id="today-workout-focus" class="hero-focus">Foco: Postura & Core Básico</p>
+        <div id="today-workout-meta" class="hero-meta">
+          ⏱️ 12 min • 5 exercícios • Queima estimada: 85 kcal
+        </div>
+        <div id="today-exercises-preview" class="today-exercises-chips">
+          <!-- Injetado dinamicamente -->
+        </div>
+        <button id="btn-start-today-workout" class="btn-primary-action">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>Iniciar Treino de Hoje</span>
+        </button>
+      </section>
+
+      <!-- Seção da Trilha dos 28 Dias -->
+      <section class="challenge-trail-section">
+        <div class="section-header">
+          <h3 class="section-title">Trilha dos 28 Dias</h3>
+          <p class="section-subtitle">Sua evolução dividida em 4 semanas estruturadas</p>
+        </div>
+
+        <!-- Seletor das 4 Semanas -->
+        <div class="week-tabs-scroll">
+          <button class="week-tab-pill active" data-week="1">Semana 1 • Ativação</button>
+          <button class="week-tab-pill" data-week="2">Semana 2 • Queima</button>
+          <button class="week-tab-pill" data-week="3">Semana 3 • Força</button>
+          <button class="week-tab-pill" data-week="4">Semana 4 • Escultura</button>
+        </div>
+
+        <!-- Card de Tema da Semana -->
+        <div class="week-info-card">
+          <h4 id="week-theme-title" class="week-theme-heading">Semana 1: Ativação & Correção Postural</h4>
+          <p id="week-theme-desc" class="week-theme-paragraph">Foco em conectar a mente aos músculos, aprender a respirar com o abdômen e aliviar dores nas costas.</p>
+        </div>
+
+        <!-- Lista de Cards dos Dias da Semana -->
+        <div id="days-grid-container" class="days-grid">
+          <!-- Injetado dinamicamente -->
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================================================
+         ABA 2: TREINO DE HOJE (DETALHE DA SESSÃO)
+         ============================================================ -->
+    <section id="tab-view-workout" class="tab-view-panel">
+      <div class="workout-tab-hero">
+        <span class="badge">Sessão Selecionada</span>
+        <h2 id="workout-tab-day-title" class="workout-tab-title">Dia 01: Alinhamento Postural</h2>
+        <div id="workout-tab-note" class="workout-tab-note">
+          Orientação da especialista Beatriz Araujo para sua melhor performance e segurança.
+        </div>
+        <button id="btn-start-from-tab" class="btn-primary-action">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+          </svg>
+          <span>Começar Treino do Dia</span>
+        </button>
+      </div>
+
+      <div class="section-header">
+        <h3 class="section-title">Movimentos Desta Sessão</h3>
+        <p class="section-subtitle">Toque em qualquer exercício para ver postura e respiração</p>
+      </div>
+
+      <div id="workout-tab-exercises-list" class="workout-exercises-list">
+        <!-- Injetado dinamicamente -->
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABA 3: BIBLIOTECA DE EXERCÍCIOS
+         ============================================================ -->
+    <section id="tab-view-library" class="tab-view-panel">
+      <div class="section-header">
+        <h2 class="section-title">Biblioteca na Parede</h2>
+        <p class="section-subtitle">Guia visual com demonstrações anatômicas em tempo real</p>
+      </div>
+
+      <!-- Filtros por Categoria Muscular -->
+      <div class="library-filters">
+        <button class="library-filter-btn active" data-category="all">Todos (8)</button>
+        <button class="library-filter-btn" data-category="Pernas & Glúteos">Pernas & Glúteos</button>
+        <button class="library-filter-btn" data-category="Abdômen & Core">Abdômen & Core</button>
+        <button class="library-filter-btn" data-category="Braços & Peitoral">Braços & Peitoral</button>
+        <button class="library-filter-btn" data-category="Flexibilidade & Postura">Postura & Alívio</button>
+      </div>
+
+      <!-- Catálogo de Cards dos Exercícios -->
+      <div id="library-grid" class="library-grid">
+        <!-- Injetado dinamicamente -->
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABA 4: PROGRESSO & CONQUISTAS
+         ============================================================ -->
+    <section id="tab-view-progress" class="tab-view-panel">
+      <div class="section-header">
+        <h2 class="section-title">Seu Progresso & Conquistas</h2>
+        <p class="section-subtitle">Histórico sincronizado e medalhas da sua jornada</p>
+      </div>
+
+      <!-- Card de Perfil da Aluna -->
+      <div class="user-profile-card">
+        <div class="user-profile-left">
+          <div class="user-avatar-circle">
+            <span id="profile-avatar-initials">AL</span>
+          </div>
+          <div class="user-profile-info">
+            <div class="user-profile-name-row">
+              <h3 id="profile-user-name" class="user-profile-name">Aluna</h3>
+              <span class="user-profile-badge">Ativa</span>
+            </div>
+            <p id="profile-user-details" class="user-profile-details">Idade: <strong id="profile-user-age">-- anos</strong> • Pilates de Parede</p>
+          </div>
+        </div>
+        <button id="btn-edit-profile" class="btn-edit-profile-icon" title="Editar Nome e Idade">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="15" height="15">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+          </svg>
+          <span>Editar</span>
+        </button>
+      </div>
+
+      <!-- Métricas Principais -->
+      <div class="progress-stats-grid">
+        <div class="stat-metric-card">
+          <div class="stat-metric-icon">📅</div>
+          <div class="stat-metric-value"><span id="stat-completed-days">0</span>/28</div>
+          <div class="stat-metric-label">Dias Concluídos</div>
+        </div>
+        <div class="stat-metric-card">
+          <div class="stat-metric-icon">⏱️</div>
+          <div class="stat-metric-value"><span id="stat-total-minutes">0</span></div>
+          <div class="stat-metric-label">Minutos Praticados</div>
+        </div>
+        <div class="stat-metric-card">
+          <div class="stat-metric-icon">🔥</div>
+          <div class="stat-metric-value"><span id="stat-total-calories">0</span></div>
+          <div class="stat-metric-label">Kcal Estimadas</div>
+        </div>
+        <div class="stat-metric-card">
+          <div class="stat-metric-icon">⚡</div>
+          <div class="stat-metric-value"><span id="stat-streak-days">0</span></div>
+          <div class="stat-metric-label">Sequência Atual</div>
+        </div>
+      </div>
+
+      <!-- Barra e Porcentagem do Desafio -->
+      <div class="progress-completion-card">
+        <div class="progress-completion-header">
+          <span class="progress-completion-label">Conclusão Total do Desafio</span>
+          <span id="stat-progress-percent" class="progress-completion-num">0%</span>
+        </div>
+        <div class="progress-track-large">
+          <div id="progress-bar-fill-large" class="progress-fill-large" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Seção de Medalhas / Badges -->
+      <div class="badges-section">
+        <div class="section-header">
+          <h3 class="section-title">Medalhas de Mérito</h3>
+          <p class="section-subtitle">Desbloqueie conquistas exclusivas ao avançar no desafio</p>
+        </div>
+        <div id="badges-grid" class="badges-grid">
+          <!-- Injetado dinamicamente -->
+        </div>
+      </div>
+
+      <!-- Área de Gerenciamento / Reset -->
+      <div class="progress-reset-zone">
+        <button id="btn-reset-challenge" class="btn-secondary-outline">Reiniciar Desafio</button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BARRA DE NAVEGAÇÃO INFERIOR FIXA (APP SHELL)
+         ============================================================ -->
+    <nav class="bottom-nav-bar" aria-label="Navegação Principal">
+      <button class="nav-tab-btn active" data-tab="dashboard">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+        </svg>
+        <span>Início</span>
+      </button>
+
+      <button class="nav-tab-btn" data-tab="workout">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+        </svg>
+        <span>Treino</span>
+      </button>
+
+      <button class="nav-tab-btn" data-tab="library">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+        </svg>
+        <span>Biblioteca</span>
+      </button>
+
+      <button class="nav-tab-btn" data-tab="progress">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+        </svg>
+        <span>Progresso</span>
+      </button>
+    </nav>
+
+    <!-- ============================================================
+         PLAYER INTERATIVO DE TREINO (MODAL FULLSCREEN)
+         ============================================================ -->
+    <div id="player-modal" class="player-fullscreen-modal">
+      <!-- Cabeçalho do Player -->
+      <div class="player-header">
+        <button id="player-close-btn" class="btn-player-icon" title="Fechar Treino">✕</button>
+        <span id="player-day-title" class="player-day-title">Dia 01: Alinhamento</span>
+        <button id="player-sound-btn" class="btn-player-icon" title="Alternar Áudio">
+          <svg id="player-sound-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Barra de Exercícios do Treino -->
+      <div class="player-progress-bar-container">
+        <div id="player-progress-dots" class="player-progress-dots"></div>
+        <span id="player-exercise-index" class="player-exercise-index">Exercício 1 de 5</span>
+      </div>
+
+      <!-- Corpo Principal do Player -->
+      <div class="player-body">
+        <!-- Banner de Próximo Exercício (durante descanso) -->
+        <div id="player-next-preview" class="player-next-banner hidden"></div>
+
+        <!-- Área Central de Demonstração SVG Animada -->
+        <div class="player-visual-card">
+          <span id="player-phase-badge" class="phase-badge work">EM EXECUÇÃO</span>
+          <div id="player-visual-container">
+            <!-- SVG renderizado aqui -->
+          </div>
+        </div>
+
+        <!-- Título do Exercício e Músculos Alvo -->
+        <div class="player-exercise-header">
+          <h3 id="player-ex-name" class="player-ex-name">Wall Sit (Cadeira na Parede)</h3>
+          <p id="player-ex-muscles" class="player-ex-muscles">Quadríceps, Glúteos e Core</p>
+        </div>
+
+        <!-- Painel Unificado: Temporizador Circular + Controles de Ação -->
+        <div class="player-hud-center">
+          <button id="player-btn-restart" class="btn-ctrl-secondary" title="Reiniciar Exercício">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="22" height="22">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+          </button>
+
+          <!-- Temporizador Circular Central -->
+          <div class="timer-circle-wrap">
+            <svg class="timer-circle-svg" viewBox="0 0 124 124">
+              <circle class="timer-ring-bg" cx="62" cy="62" r="54" />
+              <circle id="player-ring-progress" class="timer-ring-progress" cx="62" cy="62" r="54" />
+            </svg>
+            <div class="timer-center-text">
+              <span id="player-timer-text" class="timer-seconds">40</span>
+              <span id="player-timer-subtext" class="timer-subtext">Restante</span>
+            </div>
+          </div>
+
+          <button id="player-btn-playpause" class="btn-ctrl-main-play" title="Pausar / Retomar">
+            <svg id="player-icon-playpause" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </button>
+
+          <button id="player-btn-skip" class="btn-ctrl-secondary" title="Pular Exercício">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="22" height="22">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Instruções de Postura (Abaixo do Timer) -->
+        <div class="player-tips-card">
+          <div class="player-tips-box">
+            <h6>Postura Correta por Beatriz Araujo:</h6>
+            <ul id="player-tips-list" class="player-tips-list"></ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Overlay de Pausa -->
+      <div id="player-paused-overlay" class="player-paused-overlay hidden">
+        <h4 class="paused-title">Treino Pausado</h4>
+        <p class="paused-desc">Respire fundo e recupere o fôlego quando estiver pronta.</p>
+        <button id="player-btn-resume" class="btn-resume">Retomar Treino</button>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         MODAL DE DETALHES DO EXERCÍCIO (BIBLIOTECA)
+         ============================================================ -->
+    <div id="modal-ex-detail" class="app-modal">
+      <div class="app-modal-sheet">
+        <div class="sheet-handle"></div>
+        <div class="sheet-header">
+          <div class="sheet-title-group">
+            <h3 id="modal-ex-title">Wall Sit</h3>
+            <span id="modal-ex-category" class="sheet-badge">Pernas & Glúteos</span>
+          </div>
+          <button id="modal-ex-detail-close" class="btn-close-sheet">✕</button>
+        </div>
+
+        <div id="modal-ex-visual" class="sheet-visual-box">
+          <!-- Renderizado com SVG -->
+        </div>
+
+        <div class="sheet-content-section">
+          <div class="sheet-info-block">
+            <h6>Músculos Alvo</h6>
+            <p id="modal-ex-muscles">Quadríceps, Glúteos e Core</p>
+          </div>
+
+          <div class="sheet-info-block">
+            <h6>Como Executar</h6>
+            <p id="modal-ex-desc">Apoie as costas completamente contra a parede...</p>
+          </div>
+
+          <div class="sheet-info-block">
+            <h6>Guia de Respiração da Especialista</h6>
+            <p id="modal-ex-breathing">Inspire expandindo as costelas e expire sugando o umbigo...</p>
+          </div>
+
+          <div class="sheet-info-block">
+            <h6>3 Dicas de Postura de Beatriz Araujo</h6>
+            <ul id="modal-ex-tips" class="sheet-tips-list"></ul>
+          </div>
+
+          <div class="sheet-info-block">
+            <h6>Benefícios Principais</h6>
+            <p id="modal-ex-benefits">Fortalece intensamente sem impacto nas articulações.</p>
+          </div>
+        </div>
+
+        <button id="btn-practice-isolated" class="btn-primary-action" data-exercise-id="">
+          <span>Praticar Este Exercício (40s)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         MODAL DE CELEBRAÇÃO / TREINO CONCLUÍDO
+         ============================================================ -->
+    <div id="modal-celebration" class="app-modal">
+      <div class="celebration-modal-dialog">
+        <div class="celebration-trophy">🎉</div>
+        <h3 id="celebration-title" class="celebration-title">Treino Concluído com Sucesso!</h3>
+        <p class="celebration-message">
+          Sensacional! Você dedicou um tempo precioso à sua saúde, postura e bem-estar hoje. Beatriz Araujo tem muito orgulho da sua constância!
+        </p>
+
+        <div id="celebration-stats" class="celebration-stats-row">
+          <!-- Minutos e Kcal aqui -->
+        </div>
+
+        <div id="celebration-badge-alert" class="hidden">
+          <!-- Alerta de conquista desbloqueada aqui -->
+        </div>
+
+        <button id="btn-celebration-done" class="btn-primary-action">
+          <span>Salvar & Continuar Desafio</span>
+        </button>
+    <!-- ============================================================
+         MODAL DE BOAS-VINDAS / ONBOARDING (NOME & IDADE)
+         ============================================================ -->
+    <div id="modal-onboarding" class="app-modal">
+      <div class="onboarding-modal-dialog">
+        <button id="btn-close-onboarding-modal" class="btn-close-onboarding hidden" aria-label="Fechar">✕</button>
+
+        <div class="onboarding-avatar-wrap">
+          <img src="assets/avatar-beatriz.svg" alt="Beatriz Araujo" class="onboarding-avatar-img">
+          <span class="onboarding-verified" title="Especialista Certificada">✓</span>
+        </div>
+
+        <div class="onboarding-badge-pill">✨ Desafio Oficial de 28 Dias</div>
+        <h3 id="onboarding-modal-title" class="onboarding-title">Seja muito bem-vinda!</h3>
+        <p id="onboarding-modal-desc" class="onboarding-message">
+          Olá! Sou a <strong>Beatriz Araujo</strong>. Vamos juntas transformar sua postura e seu corpo com o Pilates de Parede. Antes de começarmos seu primeiro treino, me conte um pouco sobre você:
+        </p>
+
+        <form id="form-onboarding" class="onboarding-form" novalidate>
+          <div class="form-group">
+            <label for="input-user-name" class="form-label">
+              <span>Como posso te chamar?</span>
+              <span class="required-star">*</span>
+            </label>
+            <div class="input-with-icon">
+              <span class="input-icon">👤</span>
+              <input 
+                type="text" 
+                id="input-user-name" 
+                class="app-input" 
+                placeholder="Ex: Mariana, Juliana..." 
+                maxlength="35" 
+                autocomplete="name" 
+                required
+              />
+            </div>
+            <span class="form-error-msg hidden" id="error-user-name">Por favor, digite seu nome ou como prefere ser chamada.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="input-user-age" class="form-label">
+              <span>Qual é a sua idade?</span>
+              <span class="required-star">*</span>
+            </label>
+            <div class="input-with-icon">
+              <span class="input-icon">🎂</span>
+              <input 
+                type="number" 
+                id="input-user-age" 
+                class="app-input" 
+                placeholder="Ex: 34" 
+                min="12" 
+                max="105" 
+                inputmode="numeric" 
+                required
+              />
+            </div>
+            <span class="form-hint">Usada para calcular seu gasto calórico com mais precisão.</span>
+            <span class="form-error-msg hidden" id="error-user-age">Por favor, informe uma idade válida (entre 12 e 105 anos).</span>
+          </div>
+
+          <button type="submit" id="btn-submit-onboarding" class="btn-primary-action onboarding-submit-btn">
+            <span id="btn-submit-onboarding-text">Começar Meu Desafio →</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </div> <!-- Fim .app-container -->
+
+  <!-- Scripts da Aplicação -->
+  <script src="js/data.js"></script>
+  <script src="js/svg-exercises.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Header sound button toggle
+    const headerSoundBtn = document.getElementById('header-sound-btn');
+    if (headerSoundBtn) {
+      headerSoundBtn.addEventListener('click', () => {
+        const isMuted = SoundEngine.toggleMute();
+        headerSoundBtn.classList.toggle('muted', isMuted);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "Desafio Pilates de Parede - 28 Dias",
+  "short_name": "Pilates Parede",
+  "description": "Aplicativo oficial do Desafio Pilates de Parede 28 Dias com a especialista Beatriz Araujo. Demonstrações vetoriais nativas, cronômetro guiado e zero consumo de dados com vídeos.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F8FAF9",
+  "theme_color": "#0D9488",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "assets/icons/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

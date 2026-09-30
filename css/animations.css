@@ -1,0 +1,370 @@
+/**
+ * Desafio Pilates de Parede - 28 Dias
+ * Animações Vetoriais CSS Keyframes para os Exercícios em SVG
+ * Estilo fluido, anatômico e moderno (BetterMe / Fitify / Nike Training)
+ */
+
+/* ============================================================
+   1. WALL SIT (CADEIRA NA PAREDE)
+   ============================================================ */
+@keyframes wallSitBody {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(42px);
+  }
+  50% {
+    transform: translateY(42px); /* Isometria sustentada */
+  }
+  80% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes wallSitThigh {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  20%, 50% {
+    transform: rotate(-38deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes wallSitShin {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  20%, 50% {
+    transform: rotate(18deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+}
+
+.anim-wall-sit .figure-torso-group {
+  animation: wallSitBody 4.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: 220px 240px;
+}
+
+.anim-wall-sit .figure-thigh {
+  animation: wallSitThigh 4.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: 215px 175px;
+}
+
+.anim-wall-sit .figure-shin {
+  animation: wallSitShin 4.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: 175px 200px;
+}
+
+/* ============================================================
+   2. ELEVAÇÃO PÉLVICA NA PAREDE (GLUTE BRIDGE)
+   ============================================================ */
+@keyframes gluteBridgePelvis {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  35%, 60% {
+    transform: translateY(-46px) rotate(-14deg); /* Elevação e pico de contração */
+  }
+  90% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes gluteBridgeCoreHighlight {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.95);
+  }
+  40%, 60% {
+    opacity: 0.9;
+    transform: scale(1.15);
+  }
+}
+
+.anim-glute-bridge .figure-pelvis-group {
+  animation: gluteBridgePelvis 3.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: 110px 235px;
+}
+
+.anim-glute-bridge .core-pulse {
+  animation: gluteBridgeCoreHighlight 3.8s ease-in-out infinite;
+  transform-origin: 165px 200px;
+}
+
+/* ============================================================
+   3. PRANCHA INCLINADA NA PAREDE (INCLINE PLANK)
+   ============================================================ */
+@keyframes inclinePlankHold {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-1.5deg);
+  }
+}
+
+@keyframes inclineCoreAura {
+  0%, 100% {
+    opacity: 0.3;
+    r: 18;
+  }
+  50% {
+    opacity: 0.85;
+    r: 26;
+  }
+}
+
+.anim-incline-plank .figure-body-lean {
+  animation: inclinePlankHold 3s ease-in-out infinite;
+  transform-origin: 120px 255px;
+}
+
+.anim-incline-plank .core-wave {
+  animation: inclineCoreAura 3s ease-in-out infinite;
+  transform-origin: 175px 165px;
+}
+
+/* ============================================================
+   4. CRUNCH COM PÉS NA PAREDE (WALL CRUNCH)
+   ============================================================ */
+@keyframes wallCrunchChest {
+  0%, 100% {
+    transform: rotate(0deg) translateY(0);
+  }
+  38%, 58% {
+    transform: rotate(-24deg) translateY(-14px); /* Flexão torácica profunda */
+  }
+  90% {
+    transform: rotate(0deg) translateY(0);
+  }
+}
+
+@keyframes wallCrunchArms {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  38%, 58% {
+    transform: rotate(-8deg);
+  }
+}
+
+.anim-wall-crunch .figure-crunch-upper {
+  animation: wallCrunchChest 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: 155px 230px;
+}
+
+.anim-wall-crunch .figure-crunch-arms {
+  animation: wallCrunchArms 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: 125px 205px;
+}
+
+/* ============================================================
+   5. ALONGAMENTO POSTERIOR NA PAREDE (HAMSTRING STRETCH)
+   ============================================================ */
+@keyframes hamstringBreath {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.02) translateY(-2px);
+  }
+}
+
+@keyframes feetAnkleFlex {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  45%, 65% {
+    transform: rotate(-16deg); /* Ponta dos pés fletida para alongar panturrilha */
+  }
+}
+
+.anim-hamstring-stretch .figure-stretch-chest {
+  animation: hamstringBreath 4.5s ease-in-out infinite;
+  transform-origin: 150px 240px;
+}
+
+.anim-hamstring-stretch .figure-feet-flex {
+  animation: feetAnkleFlex 4.5s ease-in-out infinite;
+  transform-origin: 245px 75px;
+}
+
+/* ============================================================
+   6. FLEXÃO INCLINADA NA PAREDE (WALL PUSHUP)
+   ============================================================ */
+@keyframes wallPushBody {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  40%, 55% {
+    transform: rotate(11deg); /* Peito aproxima da parede */
+  }
+  85% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes wallPushArms {
+  0%, 100% {
+    transform: scaleX(1);
+  }
+  40%, 55% {
+    transform: scaleX(0.72); /* Cotovelo flexiona a 90 graus */
+  }
+  85% {
+    transform: scaleX(1);
+  }
+}
+
+.anim-wall-pushup .figure-push-body {
+  animation: wallPushBody 3.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: 110px 255px;
+}
+
+.anim-wall-pushup .figure-push-arms {
+  animation: wallPushArms 3.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: 220px 140px;
+}
+
+/* ============================================================
+   7. PANTURRILHA NA PAREDE (CALF RAISE)
+   ============================================================ */
+@keyframes calfRaiseBody {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  35%, 55% {
+    transform: translateY(-34px); /* Elevação máxima na ponta dos pés */
+  }
+  85% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes calfMusclePulse {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+  35%, 55% {
+    opacity: 0.95;
+    transform: scale(1.2);
+  }
+}
+
+.anim-calf-raise .figure-calf-group {
+  animation: calfRaiseBody 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: 190px 260px;
+}
+
+.anim-calf-raise .calf-pulse {
+  animation: calfMusclePulse 2.8s ease-in-out infinite;
+  transform-origin: 185px 225px;
+}
+
+/* ============================================================
+   8. ABERTURA TORÁCICA NA PAREDE (THORACIC OPENER)
+   ============================================================ */
+@keyframes thoracicArmSweep {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  40%, 60% {
+    transform: rotate(-105deg); /* Abertura do braço e peito para trás */
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes thoracicChestRotation {
+  0%, 100% {
+    transform: skewX(0deg);
+  }
+  40%, 60% {
+    transform: skewX(-6deg);
+  }
+  90% {
+    transform: skewX(0deg);
+  }
+}
+
+.anim-thoracic-opener .figure-sweep-arm {
+  animation: thoracicArmSweep 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: 195px 135px;
+}
+
+.anim-thoracic-opener .figure-sweep-chest {
+  animation: thoracicChestRotation 4s ease-in-out infinite;
+  transform-origin: 195px 170px;
+}
+
+/* ============================================================
+   GUIAS GERAIS DE RESPIRAÇÃO SINCRONIZADA NO SVG
+   ============================================================ */
+@keyframes breathingPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+}
+
+@keyframes breathTextFadeInhale {
+  0%, 45% {
+    opacity: 1;
+  }
+  50%, 95% {
+    opacity: 0.15;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes breathTextFadeExhale {
+  0%, 45% {
+    opacity: 0.15;
+  }
+  50%, 95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.15;
+  }
+}
+
+.svg-breathing-ring {
+  animation: breathingPulse 4s ease-in-out infinite;
+  transform-origin: 50px 45px;
+}
+
+.breath-txt-inhale {
+  animation: breathTextFadeInhale 4s ease-in-out infinite;
+}
+
+.breath-txt-exhale {
+  animation: breathTextFadeExhale 4s ease-in-out infinite;
+}
+
+/* Alinhamento postural pontilhado */
+.svg-posture-guide {
+  stroke: #0D9488;
+  stroke-dasharray: 4, 4;
+  opacity: 0.55;
+  animation: guideGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes guideGlow {
+  from { opacity: 0.35; }
+  to { opacity: 0.75; }
+}

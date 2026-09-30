@@ -1,0 +1,27 @@
+=======================================================
+GUIA OFICIAL: NOMES DOS ARQUIVOS DE VÍDEO (.MP4 / .GIF)
+Desafio Pilates de Parede - 28 Dias (Beatriz Araujo)
+=======================================================
+
+ARQUIVOS JÁ PRESENTES NA PASTA:
+✔ wall-sit.gif           (ou wall-sit.mp4) -> 1. Wall Sit (Cadeira na Parede)
+✔ glute-bridge.mp4       (ou glute-bridge.gif) -> 2. Elevação Pélvica com Apoio na Parede
+
+ARQUIVOS RESTANTES A SALVAR:
+3. incline-plank.mp4      (ou incline-plank.gif)      -> Prancha Inclinada na Parede
+4. wall-crunch.mp4        (ou wall-crunch.gif)        -> Crunch Abdominal com Pés na Parede
+5. hamstring-stretch.mp4  (ou hamstring-stretch.gif)  -> Alongamento Posterior na Parede
+6. wall-pushup.mp4        (ou wall-pushup.gif)        -> Flexão Inclinada na Parede
+7. calf-raise.mp4         (ou calf-raise.gif)         -> Panturrilha com Apoio na Parede
+8. thoracic-opener.mp4    (ou thoracic-opener.gif)    -> Abertura Torácica na Parede
+
+-------------------------------------------------------
+DICA DE NOMECLATURA:
+-------------------------------------------------------
+Para evitar erros no navegador (especialmente no Safari de iPhone),
+procure salvar com os nomes padrão em minúsculo e sem acentos:
+Ex: glute-bridge.mp4 (em vez de "2-elevaçao pélvica.mp4").
+
+O arquivo de 360p pesou apenas 575 KB (4x menor que o GIF)
+e a velocidade de carregamento fica instantânea!
+=======================================================

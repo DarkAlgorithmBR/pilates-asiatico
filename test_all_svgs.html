@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body style="background: #F8FAF9; padding: 20px;">
+  <h2>Visual Inspection of All 8 SVGs</h2>
+  
+    <div style="margin-bottom: 30px; background: white; padding: 15px; border-radius: 16px; border: 1px solid #ccc; max-width: 400px;">
+      <h3>wall-sit</h3>
+      <div style="width: 100%; height: 260px; background: #fff;">
+        
+      <svg viewBox="0 0 360 280" width="100%" height="100%" class="exercise-svg-root anim-wall-sit" xmlns="http://www.w3.org/2000/svg">
+        
+      <defs>
+        <!-- Gradientes da Pele e Roupa da Silhueta -->
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FED7AA" />
+          <stop offset="100%" stop-color="#FDBA74" />
+        </linearGradient>
+
+        <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#334155" />
+          <stop offset="100%" stop-color="#1E293B" />
+        </linearGradient>
+
+        <linearGradient id="topGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0D9488" />
+          <stop offset="100%" stop-color="#0F766E" />
+        </linearGradient>
+
+        <linearGradient id="leggingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1E293B" />
+          <stop offset="100%" stop-color="#0F172A" />
+        </linearGradient>
+
+        <linearGradient id="matGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#99F6E4" stop-opacity="0.3" />
+          <stop offset="100%" stop-color="#5EEAD4" stop-opacity="0.6" />
+        </linearGradient>
+
+        <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#E2E8F0" />
+          <stop offset="100%" stop-color="#CBD5E1" />
+        </linearGradient>
+
+        <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FF6B6B" stop-opacity="0.75" />
+          <stop offset="100%" stop-color="#F97316" stop-opacity="0.2" />
+        </linearGradient>
+
+        <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+      </defs>
+    
+        
+      <!-- Piso do Estúdio -->
+      <line x1="20" y1="258" x2="340" y2="258" stroke="#E2E8F0" stroke-width="2" stroke-linecap="round" />
+      
+      <!-- Tapete de Pilates (Mat) -->
+      <rect x="80" y="254" width="190" height="8" rx="4" fill="url(#matGrad)" stroke="#2DD4BF" stroke-width="1.5" />
+      
+      <!-- Parede de Pilates com Textura -->
+      <rect x="275" y="15" width="22" height="245" rx="3" fill="url(#wallGrad)" />
+      <line x1="275" y1="20" x2="275" y2="258" stroke="#94A3B8" stroke-width="2.5" />
+      <!-- Textura de Linha Guia Vertical da Parede -->
+      <line x1="286" y1="35" x2="286" y2="245" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="8,6" />
+      
+      <!-- Rótulo Parede -->
+      <text x="286" y="135" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="800" fill="#94A3B8" text-anchor="middle" transform="rotate(-90 286 135)" letter-spacing="3">PAREDE</text>
+    
+        
+      <g class="svg-breathing-pill" transform="translate(18, 16)">
+        <rect x="0" y="0" width="112" height="26" rx="13" fill="#FFFFFF" fill-opacity="0.9" stroke="#E2E8F0" stroke-width="1" />
+        <circle cx="14" cy="13" r="6" fill="#0D9488" class="svg-breathing-ring" />
+        <text x="28" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#0D9488" class="breath-txt-inhale">Inspire...</text>
+        <text x="28" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#FF6B6B" class="breath-txt-exhale">Expire...</text>
+      </g>
+    
+
+        <!-- Linha Guia Postural (90 graus) -->
+        <path d="M 270 140 L 270 215 L 210 215 L 210 256" fill="none" class="svg-posture-guide" />
+
+        <!-- Silhueta Feminina Wall Sit -->
+        <g class="figure-root">
+          <!-- Pernas e Pés Fixos no Piso -->
+          <g class="figure-shin">
+            <!-- Canela / Perna Inferior (vertical) -->
+            <path d="M 205 210 Q 206 235 204 256" stroke="url(#leggingGrad)" stroke-width="16" stroke-linecap="round" fill="none" />
+            <!-- Pé / Sapatilha -->
+            <path d="M 200 256 L 222 256 Q 224 252 216 250 Z" fill="#0D9488" />
+          </g>
+
+          <!-- Coxa que flexiona até 90 graus -->
+          <g class="figure-thigh">
+            <path d="M 264 212 Q 235 212 205 210" stroke="url(#leggingGrad)" stroke-width="18" stroke-linecap="round" fill="none" />
+            <!-- Destaque muscular de ativação nos quadríceps -->
+            <circle cx="235" cy="211" r="14" fill="url(#glowGrad)" filter="url(#softGlow)" />
+          </g>
+
+          <!-- Tronco e Cabeça (Deslizam na parede) -->
+          <g class="figure-torso-group">
+            <!-- Glúteos apoiados na parede -->
+            <ellipse cx="264" cy="208" rx="14" ry="12" fill="url(#leggingGrad)" />
+            
+            <!-- Tronco / Coluna alinhada à parede -->
+            <path d="M 265 205 L 265 130" stroke="url(#topGrad)" stroke-width="20" stroke-linecap="round" fill="none" />
+
+            <!-- Faixa Coral Top Fitness -->
+            <rect x="257" y="145" width="16" height="5" rx="2.5" fill="#FF6B6B" />
+
+            <!-- Pescoço -->
+            <line x1="265" y1="125" x2="265" y2="114" stroke="url(#skinGrad)" stroke-width="10" stroke-linecap="round" />
+
+            <!-- Cabeça -->
+            <circle cx="265" cy="100" r="13" fill="url(#skinGrad)" />
+            
+            <!-- Coque de Cabelo Fitness -->
+            <circle cx="273" cy="94" r="8" fill="url(#hairGrad)" />
+            <circle cx="264" cy="98" r="13" fill="url(#hairGrad)" clip-path="polygon(0 0, 100% 0, 100% 70%, 0 70%)" />
+            <circle cx="275" cy="92" r="3" fill="#FF6B6B" /> <!-- Elástico coral -->
+
+            <!-- Braços estendidos à frente para equilíbrio -->
+            <g class="figure-arms">
+              <path d="M 260 135 Q 220 142 185 145" stroke="url(#skinGrad)" stroke-width="9" stroke-linecap="round" fill="none" />
+              <!-- Mãos delicadas -->
+              <circle cx="182" cy="145" r="4.5" fill="url(#skinGrad)" />
+            </g>
+          </g>
+        </g>
+      </svg>
+    
+      </div>
+    </div>
+  
+    <div style="margin-bottom: 30px; background: white; padding: 15px; border-radius: 16px; border: 1px solid #ccc; max-width: 400px;">
+      <h3>glute-bridge</h3>
+      <div style="width: 100%; height: 260px; background: #fff;">
+        
+      <svg viewBox="0 0 360 280" width="100%" height="100%" class="exercise-svg-root anim-glute-bridge" xmlns="http://www.w3.org/2000/svg">
+        
+      <defs>
+        <!-- Gradientes da Pele e Roupa da Silhueta -->
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FED7AA" />
+          <stop offset="100%" stop-color="#FDBA74" />
+        </linearGradient>
+
+        <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#334155" />
+          <stop offset="100%" stop-color="#1E293B" />
+        </linearGradient>
+
+        <linearGradient id="topGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0D9488" />
+          <stop offset="100%" stop-color="#0F766E" />
+        </linearGradient>
+
+        <linearGradient id="leggingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1E293B" />
+          <stop offset="100%" stop-color="#0F172A" />
+        </linearGradient>
+
+        <linearGradient id="matGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#99F6E4" stop-opacity="0.3" />
+          <stop offset="100%" stop-color="#5EEAD4" stop-opacity="0.6" />
+        </linearGradient>
+
+        <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#E2E8F0" />
+          <stop offset="100%" stop-color="#CBD5E1" />
+        </linearGradient>
+
+        <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FF6B6B" stop-opacity="0.75" />
+          <stop offset="100%" stop-color="#F97316" stop-opacity="0.2" />
+        </linearGradient>
+
+        <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+      </defs>
+    
+        
+      <!-- Piso do Estúdio -->
+      <line x1="20" y1="258" x2="340" y2="258" stroke="#E2E8F0" stroke-width="2" stroke-linecap="round" />
+      
+      <!-- Tapete de Pilates (Mat) -->
+      <rect x="50" y="254" width="245" height="8" rx="4" fill="url(#matGrad)" stroke="#2DD4BF" stroke-width="1.5" />
+      
+      <!-- Parede de Pilates com Textura -->
+      <rect x="305" y="15" width="22" height="245" rx="3" fill="url(#wallGrad)" />
+      <line x1="305" y1="20" x2="305" y2="258" stroke="#94A3B8" stroke-width="2.5" />
+      <!-- Textura de Linha Guia Vertical da Parede -->
+      <line x1="316" y1="35" x2="316" y2="245" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="8,6" />
+      
+      <!-- Rótulo Parede -->
+      <text x="316" y="135" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="800" fill="#94A3B8" text-anchor="middle" transform="rotate(-90 316 135)" letter-spacing="3">PAREDE</text>
+    
+        
+      <g class="svg-breathing-pill" transform="translate(18, 16)">
+        <rect x="0" y="0" width="112" height="26" rx="13" fill="#FFFFFF" fill-opacity="0.9" stroke="#E2E8F0" stroke-width="1" />
+        <circle cx="14" cy="13" r="6" fill="#0D9488" class="svg-breathing-ring" />
+        <text x="28" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#0D9488" class="breath-txt-inhale">Inspire...</text>
+        <text x="28" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#FF6B6B" class="breath-txt-exhale">Expire...</text>
+      </g>
+    
+
+        <!-- Silhueta Deitada com Pés na Parede -->
+        <g class="figure-root">
+          <!-- Cabeça e Ombros no chão (fixos) -->
+          <circle cx="95" cy="245" r="12" fill="url(#skinGrad)" />
+          <circle cx="86" cy="246" r="7" fill="url(#hairGrad)" /> <!-- Coque -->
+          <line x1="105" y1="247" x2="118" y2="247" stroke="url(#skinGrad)" stroke-width="9" />
+          
+          <!-- Braços estendidos ao longo do corpo no chão -->
+          <line x1="118" y1="249" x2="175" y2="249" stroke="url(#skinGrad)" stroke-width="8" stroke-linecap="round" />
+
+          <!-- Parte Superior do Peito apoiada no chão -->
+          <ellipse cx="125" cy="245" rx="14" ry="9" fill="url(#topGrad)" />
+
+          <!-- Pés apoiados firmemente na parede -->
+          <g class="figure-wall-feet">
+            <path d="M 304 170 L 292 170 Q 290 178 304 182 Z" fill="#0D9488" />
+            <path d="M 304 185 L 292 185 Q 290 193 304 197 Z" fill="#0D9488" />
+          </g>
+
+          <!-- Grupo Pélvis + Coxas + Tronco Médio (Eleva-se em arco) -->
+          <g class="figure-pelvis-group">
+            <!-- Canelas partindo da parede -->
+            <path d="M 292 176 L 245 190" stroke="url(#leggingGrad)" stroke-width="14" stroke-linecap="round" />
+            
+            <!-- Joelho e Coxas em direção à pelve -->
+            <path d="M 245 190 L 180 235" stroke="url(#leggingGrad)" stroke-width="16" stroke-linecap="round" />
+
+            <!-- Pelve / Quadril que sobe -->
+            <ellipse cx="180" cy="235" rx="15" ry="12" fill="url(#leggingGrad)" />
+
+            <!-- Tronco conectando ombros ao quadril -->
+            <path d="M 125 245 L 180 235" stroke="url(#topGrad)" stroke-width="18" stroke-linecap="round" />
+            
+            <!-- Faixa Coral do Top -->
+            <line x1="140" y1="243" x2="142" y2="237" stroke="#FF6B6B" stroke-width="4" stroke-linecap="round" />
+
+            <!-- Destaque Ativo de Glúteo e Core -->
+            <circle cx="185" cy="232" r="16" fill="url(#glowGrad)" filter="url(#softGlow)" class="core-pulse" />
+          </g>
+        </g>
+      </svg>
+    
+      </div>
+    </div>
+  
+    <div style="margin-bottom: 30px; background: white; padding: 15px; border-radius: 16px; border: 1px solid #ccc; max-width: 400px;">
+      <h3>incline-plank</h3>
+      <div style="width: 100%; height: 260px; background: #fff;">
+        
+      <svg viewBox="0 0 360 280" width="100%" height="100%" class="exercise-svg-root anim-incline-plank" xmlns="http://www.w3.org/2000/svg">
+        
+      <defs>
+        <!-- Gradientes da Pele e Roupa da Silhueta -->
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FED7AA" />
+          <stop offset="100%" stop-color="#FDBA74" />
+        </linearGradient>
+
+        <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#334155" />
+          <stop offset="100%" stop-color="#1E293B" />
+        </linearGradient>
+
+        <linearGradient id="topGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0D9488" />
+          <stop offset="100%" stop-color="#0F766E" />
+        </linearGradient>
+
+        <linearGradient id="leggingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1E293B" />
+          <stop offset="100%" stop-color="#0F172A" />
+        </linearGradient>
+
+        <linearGradient id="matGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#99F6E4" stop-opacity="0.3" />
+          <stop offset="100%" stop-color="#5EEAD4" stop-opacity="0.6" />
+        </linearGradient>
+
+        <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#E2E8F0" />
+          <stop offset="100%" stop-color="#CBD5E1" />
+        </linearGradient>
+
+        <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FF6B6B" stop-opacity="0.75" />
+          <stop offset="100%" stop-color="#F97316" stop-opacity="0.2" />
+        </linearGradient>
+
+        <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+      </defs>
+    
+        
+      <!-- Piso do Estúdio -->
+      <line x1="20" y1="258" x2="340" y2="258" stroke="#E2E8F0" stroke-width="2" stroke-linecap="round" />
+      
+      <!-- Tapete de Pilates (Mat) -->
+      <rect x="60" y="254" width="230" height="8" rx="4" fill="url(#matGrad)" stroke="#2DD4BF" stroke-width="1.5" />
+      
+      <!-- Parede de Pilates com Textura -->
+      <rect x="295" y="15" width="22" height="245" rx="3" fill="url(#wallGrad)" />
+      <line x1="295" y1="20" x2="295" y2="258" stroke="#94A3B8" stroke-width="2.5" />
+      <!-- Textura de Linha Guia Vertical da Parede -->
+      <line x1="306" y1="35" x2="306" y2="245" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="8,6" />
+      
+      <!-- Rótulo Parede -->
+      <text x="306" y="135" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="800" fill="#94A3B8" text-anchor="middle" transform="rotate(-90 306 135)" letter-spacing="3">PAREDE</text>
+    
+        
+      <g class="svg-breathing-pill" transform="translate(18, 16)">
+        <rect x="0" y="0" width="112" height="26" rx="13" fill="#FFFFFF" fill-opacity="0.9" stroke="#E2E8F0" stroke-width="1" />
+        <circle cx="14" cy="13" r="6" fill="#0D9488" class="svg-breathing-ring" />
+        <text x="28" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#0D9488" class="breath-txt-inhale">Inspire...</text>
+        <text x="28" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#FF6B6B" class="breath-txt-exhale">Expire...</text>
+      </g>
+    
+
+        <!-- Linha Guia de Alinhamento Cabeça-Calcanhar -->
+        <line x1="120" y1="256" x2="255" y2="85" class="svg-posture-guide" />
+
+        <!-- Silhueta em Prancha Inclinada -->
+        <g class="figure-root">
+          <!-- Apoio das Mãos na Parede -->
+          <circle cx="292" cy="120" r="5" fill="url(#skinGrad)" />
+          <line x1="294" y1="110" x2="294" y2="130" stroke="#0D9488" stroke-width="3" stroke-linecap="round" />
+
+          <!-- Corpo Todo Inclinado em Bloco -->
+          <g class="figure-body-lean">
+            <!-- Calcanhares / Pés apoiados no chão -->
+            <ellipse cx="120" cy="254" rx="10" ry="5" fill="#0D9488" />
+
+            <!-- Pernas / Legging (em ângulo perfeito) -->
+            <path d="M 122 252 L 185 170" stroke="url(#leggingGrad)" stroke-width="16" stroke-linecap="round" />
+
+            <!-- Pelve e Glúteos -->
+            <ellipse cx="185" cy="170" rx="13" ry="11" fill="url(#leggingGrad)" />
+
+            <!-- Tronco / Abdômen Ativado -->
+            <path d="M 185 170 L 235 105" stroke="url(#topGrad)" stroke-width="19" stroke-linecap="round" />
+            <rect x="200" y="130" width="14" height="4" rx="2" fill="#FF6B6B" transform="rotate(-52 200 130)" />
+
+            <!-- Pulso de Core / Transverso Abdominal -->
+            <circle cx="198" cy="150" r="20" fill="url(#glowGrad)" filter="url(#softGlow)" class="core-wave" />
+
+            <!-- Pescoço e Cabeça alinhada -->
+            <line x1="235" y1="105" x2="245" y2="92" stroke="url(#skinGrad)" stroke-width="9" />
+            <circle cx="254" cy="80" r="13" fill="url(#skinGrad)" />
+            <circle cx="261" cy="73" r="8" fill="url(#hairGrad)" /> <!-- Coque -->
+            <circle cx="253" cy="78" r="13" fill="url(#hairGrad)" clip-path="polygon(0 0, 100% 0, 100% 60%, 0 60%)" />
+
+            <!-- Braços estendidos empurrando a parede -->
+            <path d="M 230 115 L 292 120" stroke="url(#skinGrad)" stroke-width="9" stroke-linecap="round" />
+          </g>
+        </g>
+      </svg>
+    
+      </div>
+    </div>
+  
+    <div style="margin-bottom: 30px; background: white; padding: 15px; border-radius: 16px; border: 1px solid #ccc; max-width: 400px;">
+      <h3>wall-crunch</h3>
+      <div style="width: 100%; height: 260px; background: #fff;">
+        
+      <svg viewBox="0 0 360 280" width="100%" height="100%" class="exercise-svg-root anim-wall-crunch" xmlns="http://www.w3.org/2000/svg">
+        
+      <defs>
+        <!-- Gradientes da Pele e Roupa da Silhueta -->
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FED7AA" />
+          <stop offset="100%" stop-color="#FDBA74" />
+        </linearGradient>
+
+        <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#334155" />
+          <stop offset="100%" stop-color="#1E293B" />
+        </linearGradient>
+
+        <linearGradient id="topGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0D9488" />
+          <stop offset="100%" stop-color="#0F766E" />
+        </linearGradient>
+
+        <linearGradient id="leggingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1E293B" />
+          <stop offset="100%" stop-color="#0F172A" />
+        </linearGradient>
+
+        <linearGradient id="matGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#99F6E4" stop-opacity="0.3" />
+          <stop offset="100%" stop-color="#5EEAD4" stop-opacity="0.6" />
+        </linearGradient>
+
+        <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#E2E8F0" />
+          <stop offset="100%" stop-color="#CBD5E1" />
+        </linearGradient>
+
+        <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FF6B6B" stop-opacity="0.75" />
+          <stop offset="100%" stop-color="#F97316" stop-opacity="0.2" />
+        </linearGradient>
+
+        <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+      </defs>
+    
+        
+      <!-- Piso do Estúdio -->
+      <line x1="20" y1="258" x2="340" y2="258" stroke="#E2E8F0" stroke-width="2" stroke-linecap="round" />
+      
+      <!-- Tapete de Pilates (Mat) -->
+      <rect x="60" y="254" width="230" height="8" rx="4" fill="url(#matGrad)" stroke="#2DD4BF" stroke-width="1.5" />
+      
+      <!-- Parede de Pilates com Textura -->
+      <rect x="295" y="15" width="22" height="245" rx="3" fill="url(#wallGrad)" />
+      <line x1="295" y1="20" x2="295" y2="258" stroke="#94A3B8" stroke-width="2.5" />
+      <!-- Textura de Linha Guia Vertical da Parede -->
+      <line x1="306" y1="35" x2="306" y2="245" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="8,6" />
+      
+      <!-- Rótulo Parede -->
+      <text x="306" y="135" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="800" fill="#94A3B8" text-anchor="middle" transform="rotate(-90 306 135)" letter-spacing="3">PAREDE</text>
+    
+        
+      <g class="svg-breathing-pill" transform="translate(18, 16)">
+        <rect x="0" y="0" width="112" height="26" rx="13" fill="#FFFFFF" fill-opacity="0.9" stroke="#E2E8F0" stroke-width="1" />
+        <circle cx="14" cy="13" r="6" fill="#0D9488" class="svg-breathing-ring" />
+        <text x="28" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#0D9488" class="breath-txt-inhale">Inspire...</text>
+        <text x="28" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#FF6B6B" class="breath-txt-exhale">Expire...</text>
+      </g>
+    
+
+        <g class="figure-root">
+          <!-- Pés apoiados na parede a 90 graus (fixos) -->
+          <g class="figure-wall-feet">
+            <path d="M 294 150 L 282 150 Q 280 157 294 162 Z" fill="#0D9488" />
+          </g>
+
+          <!-- Pernas a 90 Graus (fixas) -->
+          <path d="M 284 156 L 235 156" stroke="url(#leggingGrad)" stroke-width="14" stroke-linecap="round" /> <!-- Canela horizontal -->
+          <path d="M 235 156 L 200 240" stroke="url(#leggingGrad)" stroke-width="16" stroke-linecap="round" /> <!-- Coxa descendo ao chão -->
+          
+          <!-- Pelve no chão -->
+          <ellipse cx="195" cy="245" rx="14" ry="10" fill="url(#leggingGrad)" />
+
+          <!-- Destaque de Contração Abdominal (Core Heat) -->
+          <circle cx="170" cy="235" r="16" fill="url(#glowGrad)" filter="url(#softGlow)" />
+
+          <!-- Tronco Superior e Cabeça que fletem em Crunch -->
+          <g class="figure-crunch-upper">
+            <!-- Torso / Top -->
+            <path d="M 195 245 L 140 243" stroke="url(#topGrad)" stroke-width="18" stroke-linecap="round" />
+            <line x1="165" y1="241" x2="165" y2="247" stroke="#FF6B6B" stroke-width="4" />
+
+            <!-- Pescoço -->
+            <line x1="135" y1="243" x2="122" y2="243" stroke="url(#skinGrad)" stroke-width="9" />
+
+            <!-- Cabeça -->
+            <circle cx="112" cy="242" r="12" fill="url(#skinGrad)" />
+            <circle cx="102" cy="242" r="7" fill="url(#hairGrad)" />
+
+            <!-- Braços flexionados com mãos atrás da cabeça -->
+            <g class="figure-crunch-arms">
+              <path d="M 142 242 Q 130 226 114 236" stroke="url(#skinGrad)" stroke-width="8" stroke-linecap="round" fill="none" />
+            </g>
+          </g>
+        </g>
+      </svg>
+    
+      </div>
+    </div>
+  
+    <div style="margin-bottom: 30px; background: white; padding: 15px; border-radius: 16px; border: 1px solid #ccc; max-width: 400px;">
+      <h3>hamstring-stretch</h3>
+      <div style="width: 100%; height: 260px; background: #fff;">
+        
+      <svg viewBox="0 0 360 280" width="100%" height="100%" class="exercise-svg-root anim-hamstring-stretch" xmlns="http://www.w3.org/2000/svg">
+        
+      <defs>
+        <!-- Gradientes da Pele e Roupa da Silhueta -->
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FED7AA" />
+          <stop offset="100%" stop-color="#FDBA74" />
+        </linearGradient>
+
+        <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#334155" />
+          <stop offset="100%" stop-color="#1E293B" />
+        </linearGradient>
+
+        <linearGradient id="topGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0D9488" />
+          <stop offset="100%" stop-color="#0F766E" />
+        </linearGradient>
+
+        <linearGradient id="leggingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1E293B" />
+          <stop offset="100%" stop-color="#0F172A" />
+        </linearGradient>
+
+        <linearGradient id="matGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#99F6E4" stop-opacity="0.3" />
+          <stop offset="100%" stop-color="#5EEAD4" stop-opacity="0.6" />
+        </linearGradient>
+
+        <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#E2E8F0" />
+          <stop offset="100%" stop-color="#CBD5E1" />
+        </linearGradient>
+
+        <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FF6B6B" stop-opacity="0.75" />
+          <stop offset="100%" stop-color="#F97316" stop-opacity="0.2" />
+        </linearGradient>
+
+        <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+      </defs>
+    
+        
+      <!-- Piso do Estúdio -->
+      <line x1="20" y1="258" x2="340" y2="258" stroke="#E2E8F0" stroke-width="2" stroke-linecap="round" />
+      
+      <!-- Tapete de Pilates (Mat) -->
+      <rect x="40" y="254" width="230" height="8" rx="4" fill="url(#matGrad)" stroke="#2DD4BF" stroke-width="1.5" />
+      
+      <!-- Parede de Pilates com Textura -->
+      <rect x="275" y="15" width="22" height="245" rx="3" fill="url(#wallGrad)" />
+      <line x1="275" y1="20" x2="275" y2="258" stroke="#94A3B8" stroke-width="2.5" />
+      <!-- Textura de Linha Guia Vertical da Parede -->
+      <line x1="286" y1="35" x2="286" y2="245" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="8,6" />
+      
+      <!-- Rótulo Parede -->
+      <text x="286" y="135" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="800" fill="#94A3B8" text-anchor="middle" transform="rotate(-90 286 135)" letter-spacing="3">PAREDE</text>
+    
+        
+      <g class="svg-breathing-pill" transform="translate(18, 16)">
+        <rect x="0" y="0" width="112" height="26" rx="13" fill="#FFFFFF" fill-opacity="0.9" stroke="#E2E8F0" stroke-width="1" />
+        <circle cx="14" cy="13" r="6" fill="#0D9488" class="svg-breathing-ring" />
+        <text x="28" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#0D9488" class="breath-txt-inhale">Inspire...</text>
+        <text x="28" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#FF6B6B" class="breath-txt-exhale">Expire...</text>
+      </g>
+    
+
+        <!-- Silhueta Deitada em L com Pernas na Parede -->
+        <g class="figure-root">
+          <!-- Tronco deitado relaxado no tapete -->
+          <g class="figure-stretch-chest">
+            <!-- Cabeça com travesseiro de conforto -->
+            <ellipse cx="90" cy="248" rx="14" ry="6" fill="#CCFBF1" />
+            <circle cx="95" cy="240" r="12" fill="url(#skinGrad)" />
+            <circle cx="85" cy="240" r="7" fill="url(#hairGrad)" />
+
+            <!-- Pescoço e Ombros -->
+            <line x1="107" y1="242" x2="120" y2="244" stroke="url(#skinGrad)" stroke-width="9" />
+            <ellipse cx="130" cy="246" rx="15" ry="9" fill="url(#topGrad)" />
+
+            <!-- Braços abertos em cruz relaxados -->
+            <path d="M 130 248 Q 145 235 155 235" stroke="url(#skinGrad)" stroke-width="7" stroke-linecap="round" fill="none" />
+
+            <!-- Torso alongado -->
+            <path d="M 130 246 L 205 248" stroke="url(#topGrad)" stroke-width="16" stroke-linecap="round" />
+          </g>
+
+          <!-- Pelve encostada na base da parede -->
+          <ellipse cx="215" cy="245" rx="15" ry="12" fill="url(#leggingGrad)" />
+
+          <!-- Pernas estendidas verticalmente na parede -->
+          <g class="figure-legs-up">
+            <path d="M 218 240 L 260 90" stroke="url(#leggingGrad)" stroke-width="16" stroke-linecap="round" />
+            
+            <!-- Aura de Drenagem Linfática / Alívio nas Pernas -->
+            <path d="M 264 220 L 264 110" stroke="#2DD4BF" stroke-width="3" stroke-dasharray="6,4" opacity="0.8" />
+
+            <!-- Pés na parede que fletem suavemente -->
+            <g class="figure-feet-flex">
+              <path d="M 260 85 L 255 65 Q 262 62 272 70 Z" fill="#0D9488" />
+            </g>
+          </g>
+        </g>
+      </svg>
+    
+      </div>
+    </div>
+  
+    <div style="margin-bottom: 30px; background: white; padding: 15px; border-radius: 16px; border: 1px solid #ccc; max-width: 400px;">
+      <h3>wall-pushup</h3>
+      <div style="width: 100%; height: 260px; background: #fff;">
+        
+      <svg viewBox="0 0 360 280" width="100%" height="100%" class="exercise-svg-root anim-wall-pushup" xmlns="http://www.w3.org/2000/svg">
+        
+      <defs>
+        <!-- Gradientes da Pele e Roupa da Silhueta -->
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FED7AA" />
+          <stop offset="100%" stop-color="#FDBA74" />
+        </linearGradient>
+
+        <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#334155" />
+          <stop offset="100%" stop-color="#1E293B" />
+        </linearGradient>
+
+        <linearGradient id="topGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0D9488" />
+          <stop offset="100%" stop-color="#0F766E" />
+        </linearGradient>
+
+        <linearGradient id="leggingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1E293B" />
+          <stop offset="100%" stop-color="#0F172A" />
+        </linearGradient>
+
+        <linearGradient id="matGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#99F6E4" stop-opacity="0.3" />
+          <stop offset="100%" stop-color="#5EEAD4" stop-opacity="0.6" />
+        </linearGradient>
+
+        <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#E2E8F0" />
+          <stop offset="100%" stop-color="#CBD5E1" />
+        </linearGradient>
+
+        <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FF6B6B" stop-opacity="0.75" />
+          <stop offset="100%" stop-color="#F97316" stop-opacity="0.2" />
+        </linearGradient>
+
+        <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+      </defs>
+    
+        
+      <!-- Piso do Estúdio -->
+      <line x1="20" y1="258" x2="340" y2="258" stroke="#E2E8F0" stroke-width="2" stroke-linecap="round" />
+      
+      <!-- Tapete de Pilates (Mat) -->
+      <rect x="60" y="254" width="230" height="8" rx="4" fill="url(#matGrad)" stroke="#2DD4BF" stroke-width="1.5" />
+      
+      <!-- Parede de Pilates com Textura -->
+      <rect x="295" y="15" width="22" height="245" rx="3" fill="url(#wallGrad)" />
+      <line x1="295" y1="20" x2="295" y2="258" stroke="#94A3B8" stroke-width="2.5" />
+      <!-- Textura de Linha Guia Vertical da Parede -->
+      <line x1="306" y1="35" x2="306" y2="245" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="8,6" />
+      
+      <!-- Rótulo Parede -->
+      <text x="306" y="135" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="800" fill="#94A3B8" text-anchor="middle" transform="rotate(-90 306 135)" letter-spacing="3">PAREDE</text>
+    
+        
+      <g class="svg-breathing-pill" transform="translate(18, 16)">
+        <rect x="0" y="0" width="112" height="26" rx="13" fill="#FFFFFF" fill-opacity="0.9" stroke="#E2E8F0" stroke-width="1" />
+        <circle cx="14" cy="13" r="6" fill="#0D9488" class="svg-breathing-ring" />
+        <text x="28" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#0D9488" class="breath-txt-inhale">Inspire...</text>
+        <text x="28" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#FF6B6B" class="breath-txt-exhale">Expire...</text>
+      </g>
+    
+
+        <g class="figure-root">
+          <!-- Pontos de Apoio das Mãos na Parede -->
+          <circle cx="294" cy="135" r="5" fill="url(#skinGrad)" />
+          <circle cx="294" cy="135" r="8" fill="#0D9488" fill-opacity="0.3" />
+
+          <!-- Corpo Rígido Inclinado que aproxima o peito -->
+          <g class="figure-push-body">
+            <!-- Calcanhares no chão -->
+            <ellipse cx="115" cy="254" rx="9" ry="5" fill="#0D9488" />
+
+            <!-- Pernas e Quadril -->
+            <path d="M 118 252 L 180 178" stroke="url(#leggingGrad)" stroke-width="16" stroke-linecap="round" />
+            <ellipse cx="180" cy="178" rx="13" ry="11" fill="url(#leggingGrad)" />
+
+            <!-- Tronco / Peitoral -->
+            <path d="M 180 178 L 230 118" stroke="url(#topGrad)" stroke-width="18" stroke-linecap="round" />
+            <line x1="200" y1="152" x2="206" y2="148" stroke="#FF6B6B" stroke-width="4" />
+
+            <!-- Destaque Muscular nos Braços e Peitoral -->
+            <circle cx="225" cy="125" r="14" fill="url(#glowGrad)" filter="url(#softGlow)" />
+
+            <!-- Pescoço e Cabeça -->
+            <line x1="230" y1="118" x2="240" y2="106" stroke="url(#skinGrad)" stroke-width="9" />
+            <circle cx="250" cy="95" r="13" fill="url(#skinGrad)" />
+            <circle cx="258" cy="88" r="8" fill="url(#hairGrad)" />
+
+            <!-- Braços articulados para flexão -->
+            <g class="figure-push-arms">
+              <path d="M 226 128 L 260 148 L 292 135" stroke="url(#skinGrad)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+            </g>
+          </g>
+        </g>
+      </svg>
+    
+      </div>
+    </div>
+  
+    <div style="margin-bottom: 30px; background: white; padding: 15px; border-radius: 16px; border: 1px solid #ccc; max-width: 400px;">
+      <h3>calf-raise</h3>
+      <div style="width: 100%; height: 260px; background: #fff;">
+        
+      <svg viewBox="0 0 360 280" width="100%" height="100%" class="exercise-svg-root anim-calf-raise" xmlns="http://www.w3.org/2000/svg">
+        
+      <defs>
+        <!-- Gradientes da Pele e Roupa da Silhueta -->
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FED7AA" />
+          <stop offset="100%" stop-color="#FDBA74" />
+        </linearGradient>
+
+        <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#334155" />
+          <stop offset="100%" stop-color="#1E293B" />
+        </linearGradient>
+
+        <linearGradient id="topGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0D9488" />
+          <stop offset="100%" stop-color="#0F766E" />
+        </linearGradient>
+
+        <linearGradient id="leggingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1E293B" />
+          <stop offset="100%" stop-color="#0F172A" />
+        </linearGradient>
+
+        <linearGradient id="matGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#99F6E4" stop-opacity="0.3" />
+          <stop offset="100%" stop-color="#5EEAD4" stop-opacity="0.6" />
+        </linearGradient>
+
+        <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#E2E8F0" />
+          <stop offset="100%" stop-color="#CBD5E1" />
+        </linearGradient>
+
+        <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FF6B6B" stop-opacity="0.75" />
+          <stop offset="100%" stop-color="#F97316" stop-opacity="0.2" />
+        </linearGradient>
+
+        <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+      </defs>
+    
+        
+      <!-- Piso do Estúdio -->
+      <line x1="20" y1="258" x2="340" y2="258" stroke="#E2E8F0" stroke-width="2" stroke-linecap="round" />
+      
+      <!-- Tapete de Pilates (Mat) -->
+      <rect x="70" y="254" width="200" height="8" rx="4" fill="url(#matGrad)" stroke="#2DD4BF" stroke-width="1.5" />
+      
+      <!-- Parede de Pilates com Textura -->
+      <rect x="275" y="15" width="22" height="245" rx="3" fill="url(#wallGrad)" />
+      <line x1="275" y1="20" x2="275" y2="258" stroke="#94A3B8" stroke-width="2.5" />
+      <!-- Textura de Linha Guia Vertical da Parede -->
+      <line x1="286" y1="35" x2="286" y2="245" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="8,6" />
+      
+      <!-- Rótulo Parede -->
+      <text x="286" y="135" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="800" fill="#94A3B8" text-anchor="middle" transform="rotate(-90 286 135)" letter-spacing="3">PAREDE</text>
+    
+        
+      <g class="svg-breathing-pill" transform="translate(18, 16)">
+        <rect x="0" y="0" width="112" height="26" rx="13" fill="#FFFFFF" fill-opacity="0.9" stroke="#E2E8F0" stroke-width="1" />
+        <circle cx="14" cy="13" r="6" fill="#0D9488" class="svg-breathing-ring" />
+        <text x="28" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#0D9488" class="breath-txt-inhale">Inspire...</text>
+        <text x="28" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#FF6B6B" class="breath-txt-exhale">Expire...</text>
+      </g>
+    
+
+        <g class="figure-root">
+          <!-- Corpo Inteiro que sobe na ponta dos pés -->
+          <g class="figure-calf-group">
+            <!-- Pés na ponta / elevação do calcanhar -->
+            <path d="M 185 256 L 202 254 L 195 240 Z" fill="#0D9488" />
+            <circle cx="190" cy="254" r="3" fill="#FF6B6B" />
+
+            <!-- Pernas e Panturrilhas bem desenhadas -->
+            <path d="M 193 242 Q 186 215 190 185" stroke="url(#leggingGrad)" stroke-width="14" stroke-linecap="round" />
+            
+            <!-- Pulso de Ativação da Panturrilha (Gastrocnêmio) -->
+            <circle cx="186" cy="216" r="13" fill="url(#glowGrad)" filter="url(#softGlow)" class="calf-pulse" />
+
+            <!-- Coxa e Quadril Reto -->
+            <path d="M 190 185 L 192 140" stroke="url(#leggingGrad)" stroke-width="16" stroke-linecap="round" />
+            <ellipse cx="192" cy="140" rx="12" ry="10" fill="url(#leggingGrad)" />
+
+            <!-- Tronco Elegante e Ereto -->
+            <path d="M 192 140 L 193 78" stroke="url(#topGrad)" stroke-width="18" stroke-linecap="round" />
+            <rect x="186" y="98" width="14" height="4" rx="2" fill="#FF6B6B" />
+
+            <!-- Pescoço e Cabeça -->
+            <line x1="193" y1="78" x2="193" y2="66" stroke="url(#skinGrad)" stroke-width="9" />
+            <circle cx="193" cy="52" r="13" fill="url(#skinGrad)" />
+            <circle cx="201" cy="46" r="8" fill="url(#hairGrad)" />
+
+            <!-- Braços estendidos à frente tocando levemente a parede -->
+            <path d="M 190 85 L 273 95" stroke="url(#skinGrad)" stroke-width="8" stroke-linecap="round" />
+            <circle cx="274" cy="95" r="4.5" fill="url(#skinGrad)" />
+          </g>
+        </g>
+      </svg>
+    
+      </div>
+    </div>
+  
+    <div style="margin-bottom: 30px; background: white; padding: 15px; border-radius: 16px; border: 1px solid #ccc; max-width: 400px;">
+      <h3>thoracic-opener</h3>
+      <div style="width: 100%; height: 260px; background: #fff;">
+        
+      <svg viewBox="0 0 360 280" width="100%" height="100%" class="exercise-svg-root anim-thoracic-opener" xmlns="http://www.w3.org/2000/svg">
+        
+      <defs>
+        <!-- Gradientes da Pele e Roupa da Silhueta -->
+        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FED7AA" />
+          <stop offset="100%" stop-color="#FDBA74" />
+        </linearGradient>
+
+        <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#334155" />
+          <stop offset="100%" stop-color="#1E293B" />
+        </linearGradient>
+
+        <linearGradient id="topGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0D9488" />
+          <stop offset="100%" stop-color="#0F766E" />
+        </linearGradient>
+
+        <linearGradient id="leggingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1E293B" />
+          <stop offset="100%" stop-color="#0F172A" />
+        </linearGradient>
+
+        <linearGradient id="matGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#99F6E4" stop-opacity="0.3" />
+          <stop offset="100%" stop-color="#5EEAD4" stop-opacity="0.6" />
+        </linearGradient>
+
+        <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#E2E8F0" />
+          <stop offset="100%" stop-color="#CBD5E1" />
+        </linearGradient>
+
+        <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FF6B6B" stop-opacity="0.75" />
+          <stop offset="100%" stop-color="#F97316" stop-opacity="0.2" />
+        </linearGradient>
+
+        <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+      </defs>
+    
+        
+      <!-- Piso do Estúdio -->
+      <line x1="20" y1="258" x2="340" y2="258" stroke="#E2E8F0" stroke-width="2" stroke-linecap="round" />
+      
+      <!-- Tapete de Pilates (Mat) -->
+      <rect x="60" y="254" width="220" height="8" rx="4" fill="url(#matGrad)" stroke="#2DD4BF" stroke-width="1.5" />
+      
+      <!-- Parede de Pilates com Textura -->
+      <rect x="285" y="15" width="22" height="245" rx="3" fill="url(#wallGrad)" />
+      <line x1="285" y1="20" x2="285" y2="258" stroke="#94A3B8" stroke-width="2.5" />
+      <!-- Textura de Linha Guia Vertical da Parede -->
+      <line x1="296" y1="35" x2="296" y2="245" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="8,6" />
+      
+      <!-- Rótulo Parede -->
+      <text x="296" y="135" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="800" fill="#94A3B8" text-anchor="middle" transform="rotate(-90 296 135)" letter-spacing="3">PAREDE</text>
+    
+        
+      <g class="svg-breathing-pill" transform="translate(18, 16)">
+        <rect x="0" y="0" width="112" height="26" rx="13" fill="#FFFFFF" fill-opacity="0.9" stroke="#E2E8F0" stroke-width="1" />
+        <circle cx="14" cy="13" r="6" fill="#0D9488" class="svg-breathing-ring" />
+        <text x="28" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#0D9488" class="breath-txt-inhale">Inspire...</text>
+        <text x="28" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#FF6B6B" class="breath-txt-exhale">Expire...</text>
+      </g>
+    
+
+        <g class="figure-root">
+          <!-- Pés e Pernas em Posição Estável -->
+          <ellipse cx="185" cy="254" rx="12" ry="5" fill="#0D9488" />
+          <path d="M 185 252 L 188 175" stroke="url(#leggingGrad)" stroke-width="16" stroke-linecap="round" />
+          <ellipse cx="188" cy="175" rx="13" ry="11" fill="url(#leggingGrad)" />
+
+          <!-- Mão de Apoio Fixa na Parede -->
+          <circle cx="284" cy="130" r="5" fill="url(#skinGrad)" />
+
+          <!-- Tronco com Rotação Torácica Suave -->
+          <g class="figure-sweep-chest">
+            <path d="M 188 175 L 190 110" stroke="url(#topGrad)" stroke-width="18" stroke-linecap="round" />
+            <line x1="184" y1="130" x2="196" y2="130" stroke="#FF6B6B" stroke-width="4" stroke-linecap="round" />
+
+            <!-- Pescoço e Cabeça -->
+            <line x1="190" y1="110" x2="190" y2="98" stroke="url(#skinGrad)" stroke-width="9" />
+            <circle cx="190" cy="85" r="13" fill="url(#skinGrad)" />
+            <circle cx="198" cy="80" r="8" fill="url(#hairGrad)" />
+
+            <!-- Braço dianteiro apoiado na parede -->
+            <line x1="190" y1="118" x2="284" y2="130" stroke="url(#skinGrad)" stroke-width="8" stroke-linecap="round" />
+
+            <!-- Destaque de Abertura Torácica e Alívio nas Costas -->
+            <circle cx="190" cy="120" r="15" fill="url(#glowGrad)" filter="url(#softGlow)" />
+
+            <!-- Braço Posterior que faz o Giro Amplo (Sweep) -->
+            <g class="figure-sweep-arm">
+              <path d="M 190 118 L 115 110" stroke="url(#skinGrad)" stroke-width="8" stroke-linecap="round" />
+              <circle cx="112" cy="110" r="4.5" fill="url(#skinGrad)" />
+              
+              <!-- Arco Guia da Rotação -->
+              <path d="M 130 90 A 60 60 0 0 1 200 65" stroke="#0D9488" stroke-width="2" stroke-dasharray="3,3" fill="none" opacity="0.6" />
+            </g>
+          </g>
+        </g>
+      </svg>
+    
+      </div>
+    </div>
+  
+</body>
+</html>
