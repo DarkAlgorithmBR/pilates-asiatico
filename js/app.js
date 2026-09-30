@@ -340,12 +340,12 @@ const App = {
     const progressPercent = Math.round((completedCount / 28) * 100);
     const activeDay = AppStorage.getCurrentActiveDay();
 
-    const greetingEl = document.getElementById('header-user-greeting');
-    if (greetingEl) {
+    const userNameEl = document.getElementById('header-user-name');
+    if (userNameEl) {
       if (data.userName && data.userName.trim()) {
-        greetingEl.textContent = `Olá, ${data.userName}! ✨`;
+        userNameEl.textContent = `Olá, ${data.userName}! 👋`;
       } else {
-        greetingEl.textContent = 'Desafio Oficial';
+        userNameEl.textContent = 'Bem-vinda! 👋';
       }
     }
 

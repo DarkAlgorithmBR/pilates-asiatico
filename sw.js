@@ -3,7 +3,7 @@
  * Service Worker para funcionamento 100% Offline (PWA)
  */
 
-const CACHE_NAME = 'pilates-parede-v1.8';
+const CACHE_NAME = 'pilates-parede-v2.0';
 
 const ASSETS_TO_CACHE = [
   './',
@@ -49,24 +49,23 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
+  // Estratégia Network-First: busca a versão mais recente na rede.
+  // Se estiver sem conexão (offline), utiliza o cache local.
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-      return fetch(event.request).then((networkResponse) => {
-        if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
-          return networkResponse;
+    fetch(event.request)
+      .then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200 && networkResponse.type === 'basic') {
+          const responseToCache = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseToCache);
+          });
         }
-        const responseToCache = networkResponse.clone();
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, responseToCache);
-        });
         return networkResponse;
-      }).catch(() => {
-        // Fallback offline
-        return caches.match('./index.html');
-      });
-    })
+      })
+      .catch(() => {
+        return caches.match(event.request).then((cached) => {
+          return cached || caches.match('./index.html');
+        });
+      })
   );
 });

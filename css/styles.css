@@ -1997,6 +1997,21 @@ body.modal-open {
 /* ============================================================
    MODAL DE BOAS-VINDAS / ONBOARDING (NOME & IDADE)
    ============================================================ */
+#modal-onboarding.app-modal,
+#modal-celebration.app-modal {
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.instructor-sub {
+  font-size: 0.70rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  display: block;
+  margin-top: 1px;
+}
+
 .onboarding-modal-dialog {
   background: var(--bg-card);
   width: 92%;
